@@ -79,8 +79,8 @@ Build / Packaging
 
     # Build RPM ( only on Linux box )
     ```
-    python setup.py sdist 
-
+    python setup.py bdist_rpm
+ 
         python setup.py bdist_rpm --spec-only  
         python setup.py bdist_rpm --requires=python-bottle,supervisor,python-requests  --release=2
         python setup.py bdist_rpm --requires=python-bottle,supervisor,python-requests  --release=`git rev-list --count --first-parent HEAD`
@@ -92,33 +92,30 @@ Build / Packaging
     # Dry run of files 
     rpm -qpl  dist/project_A-0.15-1.noarch.rpm
 
-
     # Install RPM
     sudo yum install project_A-0.15-1.noarch.rpm
 
     # Check location of files installed 
     rpm -ql  project_A
 
+    # install rpm locally 
+    TODO - rpm  --install dist/project_A-0.15-1.noarch.rpm  -r /home/vagrant/foo2/build/pythonProjectExample/install_dir2/
+
 
     # Build Egg 
     python setup.py sdist
 
-
     # Install egg 
      pip install dist/project_A-0.15.tar.gz
+
+    # Install egg in local directory 
+    pip install dist/project_A-0.15.tar.gz   -t install_dir/
 
 
 
 
     # tool needed to build rpm 
     sudo yum install rpm-build
-
-
-
-
-
-
-
 
 
     location -  /usr/lib/python2.7/site-packages/pythonBoilerplate/
