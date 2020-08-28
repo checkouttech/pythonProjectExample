@@ -1,6 +1,4 @@
 import sys 
-from dataSetDiff.perform_diff import perform_diff
-
 
 def execute_task(task_function, config) :
 

@@ -3,6 +3,8 @@ from setuptools.command.test import test as TestCommand
 from setuptools import setup, Command
 import os
 import subprocess
+from subprocess import STDOUT, check_output
+
 
 class PyTest(TestCommand):
     user_options = [('pytest-args=', 'a', "Arguments to pass to py.test")]
@@ -33,10 +35,12 @@ class CleanCommand(Command):
         os.system('rm -vrf ./build ./dist ./*.pyc ./*.tgz ./*.egg-info')
 
 setup(
-    name='pythonProjectExample',
+    name='project_A',
     version='0.15',
     # release is not supported in bdist rpm
-    release=subprocess.check_output(["git", "rev-list", "--count", "--first-parent", "HEAD"]).rstrip(),
+    #release=subprocess.check_output(["git", "rev-list", "--count", "--first-parent", "HEAD"]).rstrip(),
+    # if creating outside git 
+    release="0.0.1",
     license='BSD',
     author='gyeh',
     author_email='hello@world.com',
@@ -44,13 +48,14 @@ setup(
     long_description="README.txt",
     #install_requires=['bottle','requests','supervisor'],  # currently not working
     #dependency_links = ['https://pypi.python.org/packages/source/b/bottle/bottle-0.12.8.tar.gz'],
-    packages=['pythonProjectExample', 'pythonProjectExample.images','pythonProjectExample.docs'],
+    #packages=['project_A', 'project_A.images','project_A.docs'],
+    packages=['project_A'],
     include_package_data=True,
-    package_data={'pythonProjectExample.images' : ['hello.gif']},
+    package_data={'project_A.images' : ['hello.gif']},
     data_files=[
-                ('/etc/init.d/', ['pythonProjectExamplectl']),
-                ('/var/log/pythonProjectExample',[]),
-                ('/etc/pythonProjectExample/conf/',['conf/supervisord.conf','conf/pythonProjectExample.conf'])
+                #('/etc/init.d/', ['project_Actl']),
+                ('/var/log/project_A',[]),
+                ('/etc/project_A/conf/',['conf/project_A.conf'])
                 ],
     description="Hello World testing setuptools",
     tests_require=['pytest'],
@@ -60,8 +65,6 @@ setup(
                 }
 
 )
-
-
 
 
 
