@@ -48,11 +48,12 @@ Run Tests
 
 
 
+   
+
 Setup  :
 
    Draw tree command 
-   find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
-
+   ```find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g' ```
 
             test-setuptools
             |
@@ -77,6 +78,7 @@ Build / Packaging
 
 
     # Build RPM ( only on Linux box )
+    ```
     python setup.py sdist 
 
         python setup.py bdist_rpm --spec-only  
@@ -85,7 +87,7 @@ Build / Packaging
 
         # Important : --python ensure the package portability to a regular python env
         python setup.py bdist_rpm  --python=&quot;/usr/bin/python&quot
-
+    ```
 
     # Dry run of files 
     rpm -qpl  dist/project_A-0.15-1.noarch.rpm
@@ -161,5 +163,41 @@ pytest-picked
 pytest-instafail
 pytest-tldr
 
-pylint --rcfile=pylint.cfg $(find handlers -maxdepth 1 -name "*.py" -print)  --msg-template="{path}:{line}: [{msg_id}({symbol}), {obj}] {msg}" > pylint.log || exit 0
+```pylint --rcfile=pylint.cfg $(find handlers -maxdepth 1 -name "*.py" -print)  --msg-template="{path}:{line}: [{msg_id}({symbol}), {obj}] {msg}" > pylint.log || exit 0```
+
+
+
+
+
+
+
+pip install allure-pytest
+pip install configparse
+pip install pip install allure-pytest
+pip install pytest-allure-adaptor
+pip install pytest-html pytest-sugar
+pip install pytest-tldr
+pip install python3
+pip install python3.8
+pip install setuptools
+pip install --upgrade pip
+pip install --upgrade  setuptools
+pip install -U pytest
+pip uninstall pytest-allure-adaptor
+sudo pip install allure-pytest
+sudo pip install configparse
+sudo pip install pytest-tldr
+sudo pip install setuptools
+sudo pip install --upgrade pip
+sudo pip install wheel
+sudo python3 -m pip install configparser
+sudo yum install epel-release
+sudo yum install python-pip
+# sudo yum install -y python3
+sudo yum install -y python3
+sudo yum install -y python3.7
+sudo yum install -y python37
+yum install -y python3
+yum install -y python3
+
 
