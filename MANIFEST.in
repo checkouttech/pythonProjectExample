@@ -1,6 +1,3 @@
-include fakebidder/images/hello.gif
-include conf/supervisord.conf
-include conf/fakebidder.conf
-include fakebidderctl
-include helloworld/images/hello.gif
+include conf/project_A.conf
+include images/hello.gif
 

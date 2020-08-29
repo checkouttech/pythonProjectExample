@@ -82,7 +82,7 @@ Build / Packaging
 
     # Build RPM ( only on Linux box )
     ```
-    python setup.py sdist 
+    python setup.py bdist_rpm 
 
         python setup.py bdist_rpm --spec-only  
         python setup.py bdist_rpm --requires=python-bottle,supervisor,python-requests  --release=2

@@ -1,9 +1,24 @@
  
+import sys
+sys.path.append("./")
+
+
+
+import pprint
+import sys
+pprint.pprint(sys.path)
+
+
+
+import pytest 
+from project_A.multiplyExample import multiply 
+
+
+
 import pytest
  
  
  
-from sample_script import mult
  
  
  
@@ -13,8 +28,7 @@ def test_raises_exception():
  
     with pytest.raises(TypeError):
  
-        mult(3)
-In this example, we mus
+        multiply(3)
 
 
 

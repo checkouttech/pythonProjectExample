@@ -48,12 +48,11 @@ setup(
     long_description="README.txt",
     #install_requires=['bottle','requests','supervisor'],  # currently not working
     #dependency_links = ['https://pypi.python.org/packages/source/b/bottle/bottle-0.12.8.tar.gz'],
-    #packages=['project_A', 'project_A.images','project_A.docs'],
-    packages=['project_A'],
+    packages=['project_A', 'lib'],
+    #packages=['project_A'],
     include_package_data=True,
-    package_data={'project_A.images' : ['hello.gif']},
+    package_data={'images' : ['hello.gif']},
     data_files=[
-                #('/etc/init.d/', ['project_Actl']),
                 ('/var/log/project_A',[]),
                 ('/etc/project_A/conf/',['conf/project_A.conf'])
                 ],
