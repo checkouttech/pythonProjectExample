@@ -27,6 +27,9 @@ Run Tests
     # Generating HTML tests result
     pip install pytest-html
     pytest --html report.html
+    python -m pytest  --self-contained-html   --html=report.html
+
+
 
     # Nice output 
     pip install pytest-sugar
@@ -79,8 +82,8 @@ Build / Packaging
 
     # Build RPM ( only on Linux box )
     ```
-    python setup.py bdist_rpm
- 
+    python setup.py sdist 
+
         python setup.py bdist_rpm --spec-only  
         python setup.py bdist_rpm --requires=python-bottle,supervisor,python-requests  --release=2
         python setup.py bdist_rpm --requires=python-bottle,supervisor,python-requests  --release=`git rev-list --count --first-parent HEAD`
@@ -92,30 +95,33 @@ Build / Packaging
     # Dry run of files 
     rpm -qpl  dist/project_A-0.15-1.noarch.rpm
 
+
     # Install RPM
     sudo yum install project_A-0.15-1.noarch.rpm
 
     # Check location of files installed 
     rpm -ql  project_A
 
-    # install rpm locally 
-    TODO - rpm  --install dist/project_A-0.15-1.noarch.rpm  -r /home/vagrant/foo2/build/pythonProjectExample/install_dir2/
-
 
     # Build Egg 
     python setup.py sdist
 
+
     # Install egg 
      pip install dist/project_A-0.15.tar.gz
-
-    # Install egg in local directory 
-    pip install dist/project_A-0.15.tar.gz   -t install_dir/
 
 
 
 
     # tool needed to build rpm 
     sudo yum install rpm-build
+
+
+
+
+
+
+
 
 
     location -  /usr/lib/python2.7/site-packages/pythonBoilerplate/
@@ -190,11 +196,57 @@ sudo pip install wheel
 sudo python3 -m pip install configparser
 sudo yum install epel-release
 sudo yum install python-pip
-# sudo yum install -y python3
+-- sudo yum install -y python3
 sudo yum install -y python3
 sudo yum install -y python3.7
 sudo yum install -y python37
-yum install -y python3
-yum install -y python3
+-- yum install -y python3
+-- yum install -y python3
+
+
+
+
+
+[flake8]
+exclude =
+    .git,
+    __pycache__,
+    .pytest_cache,
+    venv
+
+ignore =
+    # Put Error/Style codes here e.g. H301
+
+max-line-length = 120
+max-complexity = 10
+
+[bandit]
+targets: blueprint
+
+[coverage:run]
+branch = True
+omit =
+    */__main__.py
+    */tests/*
+    */venv/*
+
+[coverage:report]
+exclude_lines =
+    pragma: no cover
+    if __name__ == .__main__.:
+
+[coverage:html]
+directory = reports
+
+[pylint]
+...  # 100 lines of config...
+
+
+
+
+
+
+
+
 
 
