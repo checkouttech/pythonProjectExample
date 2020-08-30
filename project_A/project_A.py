@@ -1,18 +1,11 @@
-
-from confirmDatasetsAreValid import confirmDatasetsAreValid
-from getDatasetDetails import getDatasetDetails
-
 import logging 
 import os 
 import json 
 import subprocess
 import sys
 
-
-import logging
-
-
-
+from confirmDatasetsAreValid import confirmDatasetsAreValid
+from getDatasetDetails import getDatasetDetails
 
 def perform_diff(config):
     logger = logging.getLogger("debug_log") 
