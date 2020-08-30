@@ -45,7 +45,8 @@ def perform_diff(config):
            #os.system( cmd_type_perform_diff_insert_result )
            subprocess.check_call(cmd_perform_diff, shell=True )
        #except :
-       except Exception, e :
+       #except Exception, e :
+       except Exception as e :
            logger.error("issue with running the command " + cmd_perform_diff )
            logger.error(e)
 

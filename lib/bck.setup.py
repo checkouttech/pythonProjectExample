@@ -1,9 +1,8 @@
 #from datetime import datetime, timedelta
 import os 
-from .setupLogger import setupLogger
+from setupLogger import setupLogger
 
-#def setup(config) :
-def prepare_system(config) :
+def setup(config) :
     # create output directory
    output_directory = config.get('UNIQUE','output_directory')
 

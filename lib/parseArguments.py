@@ -1,6 +1,7 @@
 import datetime
 from random import randint
-import ConfigParser
+#import ConfigParser
+import configparser 
 
 
 def parseArguments(arguments):
@@ -8,12 +9,16 @@ def parseArguments(arguments):
     id = datetime.datetime.now().strftime("%Y%m%d_%H%M%S") + "_" + str(randint(0, 9))
     #id = "20181008_164133_9"
 
-    config = ConfigParser.SafeConfigParser()
+    #config = ConfigParser.SafeConfigParser()
+    #config = configparser.BasicInterpolation() 
+    config = configparser.ConfigParser() 
 
     args = arguments.parse_args()
 
     if args.config:
-        config = ConfigParser.SafeConfigParser()
+        #config = ConfigParser.SafeConfigParser()
+        #config = configparser.BasicInterpolation() 
+        config = configparser.ConfigParser() 
         config.read([args.config])
     else :
        logger.info ( "no file given")
