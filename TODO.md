@@ -29,6 +29,14 @@ import sample
 
 
 
+#currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+#sys.path.insert(0,'..')
+
+
+
+install packages for python3 
+
+py -3.4 -m pip install SomePackage  # specifically Python 3.
 
 
 

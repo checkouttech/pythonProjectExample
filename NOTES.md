@@ -12,4 +12,28 @@ Notes
 
 
 
+To create virtualenv for installation 
+
+    $  sudo easy_install pip 
+    $  pip list 
+    $  pip install virtualenv --upgrade                
+    $  /usr/local/bin/virtualenv-2.7 env
+    $  source env/bin/activate
+
+
+Installation : 
+
+    $  (env):$  pip install  /tmp/foo/helloworld-0.1.tar.gz 
+
+
+Check : 
+
+    $ env/bin/python 
+    
+    >>> import helloworld
+    >>> dir(helloworld.hello)
+    >>> hey = helloworld.hello.Hello()
+    >>> hey.say_hello()
+
+
 

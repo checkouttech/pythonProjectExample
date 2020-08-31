@@ -3,11 +3,15 @@
 # Execute  
  
     # from directory 
-    python project_A/driver_A.py   --config conf/project_A.conf  --dataset_one b1_table --dataset_two b2_table --tag_name foobar
+       python3 project_A/driver_A.py   --config conf/project_A.conf  --dataset_one b1_table --dataset_two b2_table --tag_name foobar
+  
+    # using __main.__py
+      python3 -m project_A   --config conf/project_A.conf  --dataset_one b1_table --dataset_two b2_table --tag_name foobar
+
 
 
     # after installation 
-    export PYTHONPATH=/usr/lib/python2.7/site-packages/project_A
+      export PYTHONPATH=/usr/lib/python2.7/site-packages/project_A
 
     TODO 
 
@@ -98,11 +102,24 @@
 	
 	
            # Install RPM
-	      sudo yum install project_A-0.15-1.noarch.rpm
+
+              # using yum 
+	         sudo yum install project_A-0.15-1.noarch.rpm
 	
+              # using rpm 
+                 rpm  --install dist/project_A-0.15-1.noarch.rpm  -r /home/vagrant/foo2/build/pythonProjectExample/install_dir2/\
+                 rpm -ivh project_A-0.15-1.noarch.rpm
+
+
 	   # Check location of files installed 
 	      rpm -ql  project_A
 	
+          # Install rpm in a particular directory    ( not sure ) 
+
+          # remove package 
+             rpm -e project_A
+
+
 
     ## Deploy python Egg ( can be installed using pip  ) 
 	
@@ -111,6 +128,11 @@
         
           # Install egg 
               pip install dist/project_A-0.15.tar.gz
+
+          # Install egg in a particular directory  
+              pip install dist/project_A-0.15.tar.gz -t [install-dir]
+
+
         
           # tool needed to build rpm 
              sudo yum install rpm-build
