@@ -51,6 +51,24 @@
     python -m pytest  --cov=project_A
 
 
+# Run Pylint 
+
+   # install 
+       pip3 install pylint
+       pip install pylint pylint-json2html
+
+   # lookup issues raised 
+       pylint --help-msg=missing-docstring
+
+
+   # generate html 
+        # generate pylint output in json format 
+            pylint  --output-format=json  **/*.py  > pylint.json
+    
+        # convert json to html 
+            pylint-json2html -o pylint.html pylint.json
+
+
 
 
 
