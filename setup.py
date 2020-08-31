@@ -53,6 +53,7 @@ setup(
     include_package_data=True,
     package_data={'images' : ['hello.gif']},
     data_files=[
+                #('/etc/init.d/', ['project_Actl']),  # some startup script 
                 ('/var/log/project_A',[]),
                 ('/etc/project_A/conf/',['conf/project_A.conf'])
                 ],
