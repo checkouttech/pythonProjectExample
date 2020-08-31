@@ -22,8 +22,8 @@
     # run all 
     python -m pytest
 
-    # run tagged test 
-    pytest –m client_a
+
+
 
     #To run parameterized test, need to install module 
     pip install parameterized
@@ -37,8 +37,6 @@
 
     # Nice output 
     pip install pytest-sugar
-     
-
 
     # stand alone 
     pytest -v  --cov=fakebidder  --cov-report html  --cov-report xml --junitxml results.xml  --html=report.htm 
@@ -47,26 +45,53 @@
     python setup.py test -a "-v  --cov=fakebidder   --cov-report html --cov-report xml --junitxml results.xml  --html=report.html"
 
 
+    # pytest option 
+       
+        # run tagged test 
+        pytest –m <markername> -v 
+
+        # run tests that matches regex
+        pytest -k <regex> -v
+ 
+        # stop after certain number of tests fails 
+        pytest --maxfail=2
+ 
+        
+
+    # run parallel 
+       pip install pytest-xdist
+       pytest -n 3
+
+    # generate xml output 
+       pytest test_multiplication.py -v --junitxml="result.xml"   
+    
+
     # coverage report 
-    python -m pytest  --cov=project_A
+    python  --cov=project_A
+
+
+
+
+
+
 
 
 # Run Pylint 
 
    # install 
-       pip3 install pylint
-       pip install pylint pylint-json2html
+   pip3 install pylint
+   pip install pylint pylint-json2html
 
    # lookup issues raised 
-       pylint --help-msg=missing-docstring
+   pylint --help-msg=missing-docstring
 
 
    # generate html 
-        # generate pylint output in json format 
-            pylint  --output-format=json  **/*.py  > pylint.json
+    # generate pylint output in json format 
+    pylint  --output-format=json  **/*.py  > pylint.json
     
-        # convert json to html 
-            pylint-json2html -o pylint.html pylint.json
+    # convert json to html 
+    pylint-json2html -o pylint.html pylint.json
 
 
 
