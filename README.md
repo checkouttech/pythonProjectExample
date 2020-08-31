@@ -112,9 +112,11 @@
 
 
 	   # Check location of files installed 
-	      rpm -ql  project_A
+	      rpm -qpl  project_A / project_A-0.15-1.noarch.rpm
 	
           # Install rpm in a particular directory    ( not sure ) 
+            
+
 
           # remove package 
              rpm -e project_A
