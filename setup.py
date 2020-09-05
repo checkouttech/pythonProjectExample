@@ -34,39 +34,75 @@ class CleanCommand(Command):
     def run(self):
         os.system('rm -vrf ./build ./dist ./*.pyc ./*.tgz ./*.egg-info')
 
-setup(
-    name='project_A',
-    version='0.15',
-    # release is not supported in bdist rpm
-    #release=subprocess.check_output(["git", "rev-list", "--count", "--first-parent", "HEAD"]).rstrip(),
+
+# module details
+__name__ = 'project-A',
+
+
+# add release here 
     # if creating outside git 
-    release="0.0.1",
-    license='BSD',
-    author='gyeh',
-    author_email='hello@world.com',
-    url='http://www.hello.com',
-    long_description="README.txt",
-    #install_requires=['bottle','requests','supervisor'],  # currently not working
+
+try:
+    __release__   = subprocess.check_output(["git", "rev-list", "--count", "--first-parent", "HEAD"]).rstrip(),
+except:
+    __release__   = '0.0.4'
+
+#release=subprocess.check_output(["git", "rev-list", "--count", "--first-parent", "HEAD"]).rstrip(),
+
+requires = [
+    'setuptools>=39.1'
+]
+
+
+setup(
+    name             = 'project-A',
+    #version         = __version__,
+    version          = 0.15,
+    #rel # ease          = '0.0.1',
+    release          = __release__,
+    license          = 'BSD',
+    
+    author           = 'foo bar',
+    author_email     = 'hello@world.com',
+    url              = 'http://www.hello.com',
+    description      = 'A python boiler plate module',
+    long_description = "README.txt",
+
+    #zip_safe         = False,
+ 
+
+
+    #install_requires=['bottle','requests','supervisor'],  # currently not working 
+
+    install_requires = requires,
+
+    packages         = ['project-A', 'project-A.lib'] , 
+
+    package_dir      = { 'project-A' : 'project_A' ,  'project-A.lib' : 'lib'}  , 
+
+
+
+    # release is not supported in bdist rpm
     #dependency_links = ['https://pypi.python.org/packages/source/b/bottle/bottle-0.12.8.tar.gz'],
-    packages=['project_A', 'lib'],
-    #packages=['project_A'],
+
+
+
     include_package_data=True,
+
     package_data={'images' : ['hello.gif']},
+
     data_files=[
                 #('/etc/init.d/', ['project_Actl']),  # some startup script 
                 ('/var/log/project_A',[]),
                 ('/etc/project_A/conf/',['conf/project_A.conf'])
                 ],
-    description="Hello World testing setuptools",
+
     tests_require=['pytest'],
+
     cmdclass = {
                 'test': PyTest,
                 'clean': CleanCommand
                 }
 
 )
-
-
-
-
 

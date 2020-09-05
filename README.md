@@ -174,6 +174,8 @@
           # Install egg 
               pip install dist/project_A-0.15.tar.gz
 
+              python3 -m pip install project-A-0.15.tar.gz
+
           # Install egg in a particular directory  
               pip install dist/project_A-0.15.tar.gz -t [install-dir]
 
