@@ -1,0 +1,3 @@
+
+pushes our built application to GitHub Package Registry every time we create tag/release on GitHub.
+

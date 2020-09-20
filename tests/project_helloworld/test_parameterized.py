@@ -34,3 +34,24 @@ def test_foo(x, y):
 
 
 
+
+testdata = [(1,0),(2,2),(6,3),(24,4)]
+
+@pytest.mark.parametrize("factorial,number",testdata )
+def test_factorial(factorial,number ) :
+    
+
+    fact = 1 
+
+    if number < 0:
+        fact = 0 
+    elif (number == 1) or (number == 0) :
+        fact = 1 
+    else :
+        for i in range ( 1, number+1 ): 
+            fact = fact * i 
+
+    assert factorial == fact  
+
+
+

@@ -178,13 +178,13 @@
 
           # Install egg in a particular directory  
               pip install dist/project_A-0.15.tar.gz -t [install-dir]
-
+              python3 -m pip install  project-A-0.15.tar.gz   -t tempinstall
 
         
           # tool needed to build rpm 
              sudo yum install rpm-build
         
           location -  /usr/lib/python2.7/site-packages/pythonBoilerplate/
-
+                      /usr/local/lib/python3.6/site-packages/
 
 
